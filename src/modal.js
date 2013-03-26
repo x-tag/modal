@@ -15,7 +15,7 @@
 
   window.addEventListener('keyup', function(event){
     if(event.keyCode == 27) xtag.query(document, 'x-modal[esc-hide]').forEach(function(modal){
-      if (modal.getAttribute('hidden') == null) xtag.fireEvent(modal, 'modalhide');
+      if (modal.getAttribute('hidden') === null) xtag.fireEvent(modal, 'modalhide');
     });
   });
 

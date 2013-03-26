@@ -44,4 +44,3 @@ The following code creates a modal that has a transparent overlay and will close
 
 [Using X-Tag components in your applications](https://github.com/x-tag/core/wiki/Using-X-Tag-Components-in-your-application)
 
-

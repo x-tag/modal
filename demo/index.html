@@ -4,18 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <title>Stub Demo - X-Tag</title>
+
     <link rel="stylesheet" type="text/css" href="x-tag-components.css"/>
-  <link rel="stylesheet" type="text/css" href="../src/modal.css"/>
+    <link rel="stylesheet" type="text/css" href="../src/modal.css"/>
 
     <script type="text/javascript" src="x-tag-components.js"></script> 
     <script type="text/javascript" src="../src/modal.js"></script>      
   <style>
+
     #modal_demo{
         background-color: white;
         border-radius: 8px;
         padding: 12px;
     }
-
 
   </style>
 </head>
@@ -45,26 +46,23 @@
   </x-modal>
 </body>
 
-<script type="text/javascript">         
+<script type="text/javascript">
 
+  xtag.addEvent(document, 'click:delegate(button)', function(e){
+    var modal = document.getElementById('modal_demo');
+    switch(e.target.getAttribute('data-action-type')){
+      case 'toggleOverlay':
+        modal[(modal.getAttribute('overlay') != null? 'remove' : 'set') + 'Attribute']('overlay', null);
+        break;
+      case 'closeModal':
+        modal.setAttribute('hidden', null);
+        break;
+      case 'openModal':
+        modal.removeAttribute('hidden');
+        break;
 
-xtag.addEvent(document, 'click:delegate(button)', function(e){
-  var modal = document.getElementById('modal_demo');
-  switch(e.target.getAttribute('data-action-type')){
-    case 'toggleOverlay':
-      modal[(modal.getAttribute('overlay') != null? 'remove' : 'set') + 'Attribute']('overlay', null);
-      break;
-    case 'closeModal':
-      modal.setAttribute('hidden', null);
-      break;
-    case 'openModal':
-      modal.removeAttribute('hidden');
-      break;
-
-  }
-});
-
-
+    }
+  });
 
 </script>
 
