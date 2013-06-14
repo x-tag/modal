@@ -1,9 +1,9 @@
 {
   "name": "Modal",
   "description": "",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": [
-    "web-components",    
+    "web-components",
     "x-tag"
   ],
   "main": [
@@ -11,6 +11,7 @@
     "src/modal.css"
   ],
   "dependencies": {
-    "x-tag-core": "*"
+    "x-tag-core": "*",
+    "x-tag-mixin-request": "*"
   }
 }

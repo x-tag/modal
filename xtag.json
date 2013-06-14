@@ -1,37 +1,33 @@
-{ 
+{
   "name": "Modal",
   "tagName": "x-modal",
-  "version": "0.1.0", 
+  "version": "0.2.0",
   "author": "Daniel Buchner, Arron Schaar",
   "description": "The modal element can be used to show notices or secondary content above the z-level of the page.",
-  "images": [], 
-  "categories": ["structural"],
+  "images": [],
+  "categories": [
+    "structural"
+  ],
   "demo": "demo/index.html",
-  "compatibility": {  
+  "compatibility": {
     "firefox": 5,
     "chrome": 4,
     "ie": 9,
     "opera": 12,
     "android": 2.1,
     "ios": 4
-  }, 
-  "documentation":{
+  },
+  "documentation": {
     "description": "",
     "attributes": {
-      "hidden":"A boolean attribute that when present will hide the modal.",
+      "hidden": "A boolean attribute that when present will hide the modal.",
       "overlay": "A boolean attribute that when present will create a transparant overlay behind the modal.",
       "esc-hide": "A boolean attribute that when present will allow the modal to be closed by pressed the escape key."
     },
-    "setters": {
-
-    },
-    "getters": {
-
-    }, 
-    "methods": {
-
-    }, 
-    "events":{
+    "setters": {},
+    "getters": {},
+    "methods": {},
+    "events": {
       "modalhide": "This event is fired when ESC key is pressed and will close the modal unless preventDefault is set."
     }
   }

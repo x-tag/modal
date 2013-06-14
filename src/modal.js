@@ -1,6 +1,6 @@
 
 (function(){
-  
+
   var oldiOS = /OS [1-4]_\d like Mac OS X/i.test(navigator.userAgent),
     oldDroid = /Android 2.\d.+AppleWebKit/.test(navigator.userAgent),
     gingerbread = /Android 2\.3.+AppleWebKit/.test(navigator.userAgent);
@@ -23,27 +23,37 @@
     window.addEventListener('scroll', function(event){
       var modals = xtag.query(document, 'body > x-modal');
       modals.forEach(function(m){
-        m.style.top = (window.pageYOffset + window.innerHeight * 0.5) + 'px'; 
+        m.style.top = (window.pageYOffset + window.innerHeight * 0.5) + 'px';
       });
     });
   }
 
   xtag.register('x-modal', {
     mixins: ['request'],
-    onCreate: function(){
-      this.setAttribute('tabindex',0);
-    },
-    onInsert: function(){
-      if (oldiOS || oldDroid){
-        this.style.top = (window.pageYOffset + window.innerHeight * 0.5) + 'px';
+    lifecycle: {
+      created: function() {
+        this.setAttribute('tabindex',0);
+      },
+      inserted: function() {
+        if (oldiOS || oldDroid) {
+          this.style.top = (window.pageYOffset + window.innerHeight * 0.5) + 'px';
+        }
       }
     },
     events: {
-      'modalhide:preventable': function(){
-        console.log("hiddding");
+      'modalhide': function() {
         this.setAttribute('hidden', '');
+      }
+    },
+    methods: {
+      toggle: function() {
+        if (this.hasAttribute('hidden')) {
+          this.removeAttribute('hidden');
+        } else {
+          this.setAttribute('hidden','');
+        }
       }
     }
   });
-  
+
 })();
