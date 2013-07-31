@@ -13,9 +13,34 @@
     document.head.appendChild(meta);
   }
 
+  function hasParentNode(elem, parent){
+      if(parent.contains){
+          return parent.contains(elem);
+      }
+      else{
+          while(elem){
+              if(elem === parent){
+                  return true;
+              }
+              elem = elem.parentNode;
+          }
+          return false;
+      }
+  }
+
   window.addEventListener('keyup', function(event){
     if(event.keyCode == 27) xtag.query(document, 'x-modal[esc-hide]').forEach(function(modal){
       if (modal.getAttribute('hidden') === null) xtag.fireEvent(modal, 'modalhide');
+    });
+  });
+
+  xtag.addEvent(document, "tap", function(e){
+    var target = e.target;
+    var modals = xtag.query(document, "x-modal:not([cancel-click-hide])");
+    modals.forEach(function(modal){
+      if(!hasParentNode(target, modal)){
+        xtag.fireEvent(modal, "modalhide");
+      }
     });
   });
 
@@ -42,16 +67,36 @@
     },
     events: {
       'modalhide': function() {
-        this.setAttribute('hidden', '');
+        this.hide();
+      }
+    },
+    accessors:{
+      "hidden": {
+        attribute: {boolean: true}
+      },
+      "overlay": {
+        attribute: {boolean: true}
+      },
+      "escHide": {
+        attribute: {boolean: true, name:"esc-hide"}
+      },
+      "cancelClickHide": {
+        attribute: {boolean: true, name:"cancel-click-hide"}
       }
     },
     methods: {
       toggle: function() {
         if (this.hasAttribute('hidden')) {
-          this.removeAttribute('hidden');
+          this.show();
         } else {
-          this.setAttribute('hidden','');
+          this.hide();
         }
+      },
+      hide: function(){
+        this.setAttribute("hidden", "");
+      },
+      show: function(){
+        this.removeAttribute("hidden");
       }
     }
   });

@@ -1,39 +1,58 @@
+## Overview
 
-## Syntax
-
-The following code creates a modal that has a transparent overlay and will close when the ESC key is pressed.
-
-```
-<x-modal overlay esc-hide>
-	<p>Hello Hello from this modal</p>
-</x-modal>
-```
-
-
-## Events
-
-```
-	var modal = document.getElementsByNames('x-modal')[0];
-	modal.addEventListener('modalhide', function(e){
-		// this event is thrown when ESC is pressed.  If you don't want the modal to close
-		// you can prevent it like so.
-		e.preventDefault();
-	});
-
-```
+A modal is a UI component that pops up when specified, covering its parent element until it is dismissed.
 
 ## Usage
 
-```
+Default modal, initializing as visible and dismissable by clicking outside the modal:
 
-	var modal = document.createElement('x-modal');
-	modal.innerHTML = "<p>Wow it's easy to use this modal.</p>";
-	modal.setAttribute('overlay','');
-	modal.setAttribute('esc-hide','');
-	document.appendChild(modal);
+	<x-modal>
+		Place content markup here
+	</x-modal>
 
+Modal that darkens the parent element that it is covering when visible:
 
-```
+	<x-modal overlay>
+		Place content markup here
+	</x-modal>
+
+Modal that initializes as hidden:
+
+	<x-modal hidden>
+		Place content markup here
+	</x-modal>
+
+Modal that allows pressing the ESC key to dismiss itself:
+
+	<x-modal esc-hide>
+		Place content markup here
+	</x-modal>
+
+Modal that prevents outer-clicks from dismissing itself:
+
+	<x-modal cancel-click-hide>
+		Place content markup here
+	</x-modal>
+
+# Methods
+
+## ___hide___
+
+Dismisses the modal popup.
+
+## ___show___
+
+Dismisses the modal popup.
+
+## ___toggle___
+
+Alternates the visibility status of the modal popups.
+
+# Events
+
+## ___modalhide___
+
+When a `x-modal` element receives the `modalhide` event, it is dismissed (if it is currently visible).
 
 
 # Create X-Tag Components

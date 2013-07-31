@@ -55,10 +55,10 @@
         modal[(modal.getAttribute('overlay') != null? 'remove' : 'set') + 'Attribute']('overlay', null);
         break;
       case 'closeModal':
-        modal.setAttribute('hidden', null);
+        modal.hide();
         break;
       case 'openModal':
-        modal.removeAttribute('hidden');
+        modal.show();
         break;
 
     }
