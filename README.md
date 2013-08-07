@@ -28,7 +28,7 @@ Modal that allows pressing the ESC key to dismiss itself:
 		Place content markup here
 	</x-modal>
 
-Modal that prevents outer-clicks from dismissing itself:
+Modal that isn't dismissed when the user clicks outside the modal box:
 
 	<x-modal cancel-click-hide>
 		Place content markup here
@@ -53,6 +53,8 @@ Alternates the visibility status of the modal popups.
 ## ___modalhide___
 
 When a `x-modal` element receives the `modalhide` event, it is dismissed (if it is currently visible).
+
+Also fired when the user presses the Escape key or clicks outside the modal box to dismiss the modal (if those methods of dismissal are enabled)
 
 
 # Create X-Tag Components

@@ -22,7 +22,8 @@
     "attributes": {
       "hidden": "A boolean attribute that when present will hide the modal.",
       "overlay": "A boolean attribute that when present will create a transparant overlay behind the modal.",
-      "esc-hide": "A boolean attribute that when present will allow the modal to be closed by pressed the escape key."
+      "esc-hide": "A boolean attribute that when present will allow the modal to be closed by pressed the escape key.",
+      "cancel-click-hide": "If set, will prevent the modal from being dismissed by clicking outside its box."
     },
     "setters": {},
     "getters": {},
