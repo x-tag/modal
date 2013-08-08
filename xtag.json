@@ -18,7 +18,7 @@
     "ios": 4
   },
   "documentation": {
-    "description": "",
+    "description": "The modal element can be used to show notices or secondary content above the z-level of the page.",
     "attributes": {
       "hidden": "A boolean attribute that when present will hide the modal.",
       "overlay": "A boolean attribute that when present will create a transparant overlay behind the modal.",
