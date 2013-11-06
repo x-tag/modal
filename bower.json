@@ -1,7 +1,7 @@
 {
   "name": "Modal",
   "description": "",
-  "version": "0.3.0",
+  "version": "0.2.2",
   "keywords": [
     "web-components",
     "x-tag"
@@ -12,7 +12,7 @@
   ],
   "dependencies": {
     "x-tag-core": "*",
-	"x-tag-transitions": "*",
-	"x-tag-pseudo-outer": "*"
+    "x-tag-transitions": "*",
+    "x-tag-pseudo-outer": "*"
   }
 }
