@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "x-tag-core": "*",
-    "x-tag-mixin-request": "*"
+	"x-tag-transitions": "*",
+	"x-tag-pseudo-outer": "*"
   }
 }
