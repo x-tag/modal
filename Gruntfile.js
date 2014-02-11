@@ -27,12 +27,24 @@ module.exports = function(grunt) {
       file: 'package.json',
       prefix: '',
       commit: true
+    },
+    stylus:{
+      dist: {
+        options:{
+          compress: true,
+          paths:['bower_components/brick-common/styles']
+        },
+        files: {
+          'src/modal.css': 'src/modal.styl'
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-bumpup');
   grunt.loadNpmTasks('grunt-tagrelease');
   grunt.loadNpmTasks('grunt-smush-components');
