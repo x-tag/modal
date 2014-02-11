@@ -1,6 +1,6 @@
 {
   "name": "x-modal",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.0",
