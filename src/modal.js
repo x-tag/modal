@@ -80,21 +80,21 @@
     },
     methods: {
       'show:transition(before)': function(){
-        this.removeAttribute('hidden');
-      },
-      'hide:transition(after)': function(){
-        this.setAttribute('hidden', '');
-      },
-      toggle: function() {
         var self = this;
         // If click-hide is enabled, then the modal will instantly
         // close if this toggle was called after a click.
         // This allows that first click to bubble before showing the modal
         xtag.requestFrame(function(){
           xtag.requestFrame(function(){
-            self[self.hasAttribute('hidden') && 'show' || 'hide']();
+            self.removeAttribute('hidden');
           });
         });
+      },
+      'hide:transition(after)': function(){
+        this.setAttribute('hidden', '');
+      },
+      toggle: function() {
+        this[this.hasAttribute('hidden') && 'show' || 'hide']();
       }
     }
   });
