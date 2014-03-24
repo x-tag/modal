@@ -1,8 +1,9 @@
 {
   "name": "Modal",
-  "description": "",
+  "description": "The modal element can be used to show notices or secondary content above the z-level of the page.",
   "version": "0.2.2",
   "keywords": [
+    "element",
     "web-components",
     "x-tag"
   ],
