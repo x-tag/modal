@@ -12,17 +12,17 @@
     meta.content = 'width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;';
     document.head.appendChild(meta);
   }
-  
+
   function setTop(modal){
     modal.style.top = (window.pageYOffset + window.innerHeight * 0.5) + 'px';
   }
-  
+
   function insertOverlay(modal){
     var next = modal.nextElementSibling;
     if (next) modal.parentNode.insertBefore(modal.overlayElement, next);
     else modal.parentNode.appendChild(modal.overlayElement);
   }
-  
+
   window.addEventListener('keyup', function(event){
     if(event.keyCode == 27) xtag.query(document, 'x-modal[escape-hide]:not([hidden])').forEach(function(modal){
       modal.hide();
@@ -78,7 +78,7 @@
         }
       }
     },
-    methods: { 
+    methods: {
       'show:transition(before)': function(){
         this.removeAttribute('hidden');
       },
@@ -86,9 +86,17 @@
         this.setAttribute('hidden', '');
       },
       toggle: function() {
-        this[this.hasAttribute('hidden') && 'show' || 'hide']();
+        var self = this;
+        // If click-hide is enabled, then the modal will instantly
+        // close if this toggle was called after a click.
+        // This allows that first click to bubble before showing the modal
+        xtag.requestFrame(function(){
+          xtag.requestFrame(function(){
+            self[self.hasAttribute('hidden') && 'show' || 'hide']();
+          });
+        });
       }
     }
   });
-  
+
 })();
