@@ -19,17 +19,29 @@
   },
   "documentation": {
     "description": "The modal element can be used to show notices or secondary content above the z-level of the page.",
+    "events":{
+      "reveal": "Firing this event will cause the modal to show."
+    },
     "attributes": {
       "hidden": "A boolean attribute that when present will hide the modal.",
       "overlay": "A boolean attribute that when present will create a transparant overlay behind the modal.",
-      "esc-hide": "A boolean attribute that when present will allow the modal to be closed by pressed the escape key.",
-      "cancel-click-hide": "If set, will prevent the modal from being dismissed by clicking outside its box."
+      "escape-hide": "A boolean attribute that when present will allow the modal to be closed by pressed the escape key.",
+      "overlay-tap-hide": "A boolean attribute that when present will allow the modal to be closede by clicking on the overlay."
     },
-    "setters": {},
-    "getters": {},
-    "methods": {},
-    "events": {
-      "modalhide": "This event is fired when ESC key is pressed and will close the modal unless preventDefault is set."
+    "setters": {
+      "overlay":"Setter for the boolean attribute overlay.",
+      "escapeHide":"Setter for the boolean attribute escape-hide.",
+      "overlayTapHide":"Setter for the boolean attribute overlay-tap-hide."
+     },
+    "getters": {
+      "overlay":"Getter for the boolean attribute overlay.",
+      "escapeHide":"Getter for the boolean attribute escape-hide.",
+      "overlayTapHide":"Getter for the boolean attribute overlay-tap-hide."
+    },
+    "methods": {
+      "show": "Removes the hidden attribute and shows the modal",
+      "hide": "Applies the hidden attribute and hides the modal",
+      "toggle": "Toggles the modal between show and hide state."
     }
   }
 }

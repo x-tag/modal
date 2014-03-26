@@ -19,12 +19,12 @@
 
   function insertOverlay(modal){
     var next = modal.nextElementSibling;
-    if (next) modal.parentNode.insertBefore(modal.overlayElement, next);
-    else modal.parentNode.appendChild(modal.overlayElement);
+    if (next) modal.parentNode.insertBefore(modal.xtag.overlayElement, next);
+    else modal.parentNode.appendChild(modal.xtag.overlayElement);
   }
 
   window.addEventListener('keyup', function(event){
-    if(event.keyCode == 27) xtag.query(document, 'x-modal[escape-hide]:not([hidden])').forEach(function(modal){
+    if (event.keyCode == 27) xtag.query(document, 'x-modal[escape-hide]:not([hidden])').forEach(function(modal){
       modal.hide();
     });
   });
@@ -35,10 +35,19 @@
     });
   }
 
+  xtag.addEvent(document, 'tap:delegate(x-modal-overlay)', function(e){
+    var modal = this.__modal__;
+    if (modal && modal.hasAttribute('overlay-tap-hide')){
+      modal.hide();
+    }
+  });
+
+
   xtag.register('x-modal', {
     lifecycle: {
       created: function() {
-        this.overlayElement = document.createElement('x-modal-overlay');
+        this.xtag.overlayElement = document.createElement('x-modal-overlay');
+        this.xtag.overlayElement.__modal__ = this;
         insertOverlay(this);
       },
       inserted: function() {
@@ -47,13 +56,13 @@
         insertOverlay(this);
       },
       removed: function(){
-        if (this.xtag.lastParent) this.xtag.lastParent.removeChild(this.overlayElement);
+        if (this.xtag.lastParent) this.xtag.lastParent.removeChild(this.xtag.overlayElement);
         this.xtag.lastParent = null;
       }
     },
     events: {
-      'tap:outer': function(e){
-        if (!this.hasAttribute('hidden') && this.clickHide) this.hide();
+      'reveal': function(){
+        this.show();
       }
     },
     accessors: {
@@ -71,24 +80,16 @@
           name: 'escape-hide'
         }
       },
-      clickHide: {
+      overlayTapHide: {
         attribute: {
           boolean: true,
-          name: 'click-hide'
+          name: 'overlay-tap-hide'
         }
       }
     },
     methods: {
       'show:transition(before)': function(){
-        var self = this;
-        // If click-hide is enabled, then the modal will instantly
-        // close if this toggle was called after a click.
-        // This allows that first click to bubble before showing the modal
-        xtag.requestFrame(function(){
-          xtag.requestFrame(function(){
-            self.removeAttribute('hidden');
-          });
-        });
+        this.removeAttribute('hidden');
       },
       'hide:transition(after)': function(){
         this.setAttribute('hidden', '');

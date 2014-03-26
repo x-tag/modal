@@ -8,18 +8,18 @@
     <link rel="stylesheet" type="text/css" href="x-tag-components.css"/>
     <link rel="stylesheet" type="text/css" href="../src/modal.css"/>
 
-    <script type="text/javascript" src="x-tag-components.js"></script> 
-    <script type="text/javascript" src="../src/modal.js"></script>      
+    <script type="text/javascript" src="x-tag-components.js"></script>
+    <script type="text/javascript" src="../src/modal.js"></script>
 
   <style>
-    
+
 	#wrap {
 	background: #ddd;
 		padding: 20px;
 		height: 100px;
 		margin: 0;
 	}
-	
+
     x-modal{
         background-color: white;
 		border: 1px solid rgba(0,0,0,0.5);
@@ -36,18 +36,18 @@
 	<button data-action-type="openModal1">Open Modal 1</button>
 	<button data-action-type="openModal2">Open Modal 2</button>
   </div>
-  <x-modal id="modal_demo1" hidden overlay click-hide transition>
+  <x-modal id="modal_demo1" hidden overlay overlay-tap-hide transition>
     <p>
-      All the railway lines north of the Thames and the South-Eastern people at Cannon Street had been warned by midnight on Sunday, and trains were being filled. 
-      People were fighting savagely for standing-room in the carriages even at two o'clock.  By three, people were being trampled and crushed even in Bishopsgate Street, 
-      a couple of hundred yards or more from Liverpool Street station; revolvers were fired, people stabbed, and the policemen who had been sent to direct the traffic, 
+      All the railway lines north of the Thames and the South-Eastern people at Cannon Street had been warned by midnight on Sunday, and trains were being filled.
+      People were fighting savagely for standing-room in the carriages even at two o'clock.  By three, people were being trampled and crushed even in Bishopsgate Street,
+      a couple of hundred yards or more from Liverpool Street station; revolvers were fired, people stabbed, and the policemen who had been sent to direct the traffic,
       exhausted and infuriated, were breaking the heads of the people they were called out to protect.
     </p>
 
     <p>
-      And as the day advanced and the engine drivers and stokers refused to return to London, the pressure of the flight drove the people in an ever-thickening multitude 
-      away from the stations and along the northward-running roads.  By midday a Martian had been seen at Barnes, and a cloud of slowly sinking black vapour drove along 
-      the Thames and across the flats of Lambeth, cutting off all escape over the bridges in its sluggish advance.  Another bank drove over Ealing, and surrounded a little 
+      And as the day advanced and the engine drivers and stokers refused to return to London, the pressure of the flight drove the people in an ever-thickening multitude
+      away from the stations and along the northward-running roads.  By midday a Martian had been seen at Barnes, and a cloud of slowly sinking black vapour drove along
+      the Thames and across the flats of Lambeth, cutting off all escape over the bridges in its sluggish advance.  Another bank drove over Ealing, and surrounded a little
       island of survivors on Castle Hill, alive, but unable to escape.
     </p>
     <div>
@@ -55,19 +55,19 @@
       <button data-action-type="closeModal1">Close</button>
     </div>
   </x-modal>
-  
+
   <x-modal id="modal_demo2" overlay hidden escape-hide>
     <p>
-      All the railway lines north of the Thames and the South-Eastern people at Cannon Street had been warned by midnight on Sunday, and trains were being filled. 
-      People were fighting savagely for standing-room in the carriages even at two o'clock.  By three, people were being trampled and crushed even in Bishopsgate Street, 
-      a couple of hundred yards or more from Liverpool Street station; revolvers were fired, people stabbed, and the policemen who had been sent to direct the traffic, 
+      All the railway lines north of the Thames and the South-Eastern people at Cannon Street had been warned by midnight on Sunday, and trains were being filled.
+      People were fighting savagely for standing-room in the carriages even at two o'clock.  By three, people were being trampled and crushed even in Bishopsgate Street,
+      a couple of hundred yards or more from Liverpool Street station; revolvers were fired, people stabbed, and the policemen who had been sent to direct the traffic,
       exhausted and infuriated, were breaking the heads of the people they were called out to protect.
     </p>
 
     <p>
-      And as the day advanced and the engine drivers and stokers refused to return to London, the pressure of the flight drove the people in an ever-thickening multitude 
-      away from the stations and along the northward-running roads.  By midday a Martian had been seen at Barnes, and a cloud of slowly sinking black vapour drove along 
-      the Thames and across the flats of Lambeth, cutting off all escape over the bridges in its sluggish advance.  Another bank drove over Ealing, and surrounded a little 
+      And as the day advanced and the engine drivers and stokers refused to return to London, the pressure of the flight drove the people in an ever-thickening multitude
+      away from the stations and along the northward-running roads.  By midday a Martian had been seen at Barnes, and a cloud of slowly sinking black vapour drove along
+      the Thames and across the flats of Lambeth, cutting off all escape over the bridges in its sluggish advance.  Another bank drove over Ealing, and surrounded a little
       island of survivors on Castle Hill, alive, but unable to escape.
     </p>
     <div>
@@ -81,9 +81,9 @@
 
   var modal1 = document.getElementById('modal_demo1');
   var modal2 = document.getElementById('modal_demo2');
-  
+
   xtag.addEvent(document, 'click:delegate(button)', function(e){
-    
+
     switch(e.target.getAttribute('data-action-type')){
       case 'toggleOverlay1':
         modal1[(modal1.getAttribute('overlay') != null? 'remove' : 'set') + 'Attribute']('overlay', null);
@@ -94,7 +94,7 @@
       case 'openModal1':
         modal1.show();
         break;
-		
+
       case 'toggleOverlay2':
         modal2[(modal2.getAttribute('overlay') != null? 'remove' : 'set') + 'Attribute']('overlay', null);
         break;
@@ -106,7 +106,7 @@
         break;
     }
   });
-	
+
 </script>
 
 </html>

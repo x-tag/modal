@@ -24,13 +24,13 @@ Modal that initializes as hidden:
 
 Modal that allows pressing the ESC key to dismiss itself:
 
-	<x-modal esc-hide>
+	<x-modal escape-hide>
 		Place content markup here
 	</x-modal>
 
 Modal that isn't dismissed when the user clicks outside the modal box:
 
-	<x-modal cancel-click-hide>
+	<x-modal overlay-tap-hide>
 		Place content markup here
 	</x-modal>
 
@@ -50,11 +50,10 @@ Alternates the visibility status of the modal popups.
 
 # Events
 
-## ___modalhide___
+## ___reveal___
 
-When a `x-modal` element receives the `modalhide` event, it is dismissed (if it is currently visible).
+When a `x-modal` element receives the `reveal` event, it will show the modal.
 
-Also fired when the user presses the Escape key or clicks outside the modal box to dismiss the modal (if those methods of dismissal are enabled)
 
 
 # Create X-Tag Components
