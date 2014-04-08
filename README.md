@@ -28,7 +28,7 @@ Modal that allows pressing the ESC key to dismiss itself:
 		Place content markup here
 	</x-modal>
 
-Modal that isn't dismissed when the user clicks outside the modal box:
+Modal that is dismissed when the user clicks on the overlay that surrounds the modal:
 
 	<x-modal overlay-tap-hide>
 		Place content markup here

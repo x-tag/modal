@@ -1,0 +1,34 @@
+{% extends "component-demo-base.html" %}
+
+{% set TAG_NAME="x-modal" %}
+{% set COMPONENT_NAME="modal" %}
+
+{% block demoContent %}
+    <p>The modal element can be used to show notices or secondary content above the z-level of the page.</p>
+    <section class="demo-wrap">
+        <header><h2>Basic usage</h2></header>
+        <p><code class="prettyprint">&lt;x-modal&gt;</code> shows by default. Use the HTML5 attribute <code class="prettyprint">hidden</code> to hide it.
+        <p>Overlay is transparent layer that sits over the main content, but below the modal.  Use the attribute <code class="prettyprint">overlay</code> to enable it.ß</p>
+        <p>The attribute <code class="prettyprint">overlay-tap-hide</code> allows users to tap on the overlay to close the modal.</p>
+        <div class="two-up">
+            <figure class="demo largeprint">
+                <p>Main App Content</p>
+                <x-modal overlay overlay-tap-hide>
+                    <h1>I am a modal</h1>
+                </x-modal>
+            </figure>
+        </div>
+        <div class="markup-wrap two-up">
+            <div class="controls">
+                <button class="btn btn-default" data-toggle-prop="hidden" data-toggle-target="x-modal">Toggle</button>
+                <button class="btn btn-default" data-toggle-prop="overlay" data-toggle-target="x-modal">Overlay</button>
+                <button class="btn btn-default" data-toggle-prop="overlay-tap-hide" data-toggle-target="x-modal">Tap Hide</button>
+            </div>
+            <h3>Markup</h3>
+            <pre class="prettyprint html">&lt;x-modal hidden&gt;<br/>   &lt;h1&gt;HI&lt;/h1&gt;<br/>&lt;/x-modal&gt;</pre>
+            <h3>JavaScript</h3>
+            <pre class="prettyprint javascript">// assume that toggleButton and modal are already<br/>// defined as their respective DOM elements<br/>toggleButton.addEventListener(&quot;click&quot;, function(){<br/>    modal.toggle(); <br/>});</pre>
+        </div>
+        <a href="#" class="top">Top</a>
+    </section>
+{% endblock %}
