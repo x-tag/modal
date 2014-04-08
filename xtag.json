@@ -1,7 +1,7 @@
 {
   "name": "Modal",
   "tagName": "x-modal",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "Daniel Buchner, Arron Schaar",
   "description": "The modal element can be used to show notices or secondary content above the z-level of the page.",
   "images": [],
@@ -19,7 +19,7 @@
   },
   "documentation": {
     "description": "The modal element can be used to show notices or secondary content above the z-level of the page.",
-    "events":{
+    "events": {
       "reveal": "Firing this event will cause the modal to show."
     },
     "attributes": {
@@ -29,14 +29,14 @@
       "overlay-tap-hide": "A boolean attribute that when present will allow the modal to be closede by clicking on the overlay."
     },
     "setters": {
-      "overlay":"Setter for the boolean attribute overlay.",
-      "escapeHide":"Setter for the boolean attribute escape-hide.",
-      "overlayTapHide":"Setter for the boolean attribute overlay-tap-hide."
-     },
+      "overlay": "Setter for the boolean attribute overlay.",
+      "escapeHide": "Setter for the boolean attribute escape-hide.",
+      "overlayTapHide": "Setter for the boolean attribute overlay-tap-hide."
+    },
     "getters": {
-      "overlay":"Getter for the boolean attribute overlay.",
-      "escapeHide":"Getter for the boolean attribute escape-hide.",
-      "overlayTapHide":"Getter for the boolean attribute overlay-tap-hide."
+      "overlay": "Getter for the boolean attribute overlay.",
+      "escapeHide": "Getter for the boolean attribute escape-hide.",
+      "overlayTapHide": "Getter for the boolean attribute overlay-tap-hide."
     },
     "methods": {
       "show": "Removes the hidden attribute and shows the modal",
