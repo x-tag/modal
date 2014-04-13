@@ -48,7 +48,6 @@
       created: function() {
         this.xtag.overlayElement = document.createElement('x-modal-overlay');
         this.xtag.overlayElement.__modal__ = this;
-        insertOverlay(this);
       },
       inserted: function() {
         if (oldiOS || oldDroid) setTop(this);
