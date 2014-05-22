@@ -31,6 +31,17 @@ x-modal-overlay {
   opacity: 0.5;
 }
 
+x-modal-overlay:before {
+  content: "✖";
+  display: block;
+  float: right;
+  padding: 10px;
+  color: red;
+  font-size: 200%;
+  line-height: 100%;
+  cursor: pointer;
+}
+
 x-modal[hidden], x-modal[hidden] + x-modal-overlay, x-modal:not([overlay]) + x-modal-overlay {
   display: none;
 }

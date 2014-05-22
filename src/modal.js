@@ -34,11 +34,16 @@
       xtag.query(document, 'body > x-modal').forEach(setTop);
     });
   }
-
-  xtag.addEvent(document, 'tap:delegate(x-modal-overlay)', function(e){
+  
+  xtag.addEvent(document, 'tapstart:delegate(x-modal-overlay)', function(e){
+    this.__overlayTapstart__ = true;
+  });
+  
+  xtag.addEvent(document, 'tapend:delegate(x-modal-overlay)', function(e){
     var modal = this.__modal__;
-    if (modal && modal.hasAttribute('overlay-tap-hide')){
+    if (this.__overlayTapstart__ && modal && modal.hasAttribute('overlay-tap-hide')){
       modal.hide();
+      this.__overlayTapstart__ = false;
     }
   });
 
