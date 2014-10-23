@@ -9,13 +9,10 @@
   ],
   "main": [
     "src/modal.js",
-    "src/modal.css",
-    "src/modal.styl"
+    "src/modal.css"
   ],
   "dependencies": {
     "x-tag-core": "*",
-    "x-tag-transitions": "*",
-    "x-tag-pseudo-outer": "*",
-    "brick-common": "*"
+    "x-tag-transitions": "*"
   }
 }

@@ -22,22 +22,11 @@ module.exports = function(grunt) {
         }
       }
     },
-    bumpup: ['bower.json', 'package.json', 'xtag.json'],
+    bumpup: ['bower.json', 'package.json'],
     tagrelease: {
       file: 'package.json',
       prefix: '',
       commit: true
-    },
-    stylus:{
-      dist: {
-        options:{
-          compress: true,
-          paths:['bower_components/brick-common/styles']
-        },
-        files: {
-          'src/modal.css': 'src/modal.styl'
-        }
-      }
     },
     exec: {
       'update_gh_pages':{
@@ -50,15 +39,14 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-stylus');
-  grunt.loadNpmTasks('grunt-smush-components');
-  grunt.loadNpmTasks('grunt-tagrelease');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-bumpup');
+  grunt.loadNpmTasks('grunt-tagrelease');
+  grunt.loadNpmTasks('grunt-smush-components');
   grunt.loadNpmTasks('grunt-exec');
 
-  grunt.registerTask('build', ['jshint','smush-components','stylus:dist']);
+  grunt.registerTask('build', ['jshint','smush-components']);
   grunt.registerTask('bump:patch', ['bumpup:patch', 'tagrelease']);
   grunt.registerTask('push', ['exec:update_master','exec:update_gh_pages']);
   grunt.registerTask('bump-push', ['bump:patch','push']);
