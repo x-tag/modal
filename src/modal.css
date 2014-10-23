@@ -11,13 +11,10 @@ x-modal {
   background: #fff;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -35,8 +32,10 @@ x-modal-overlay {
 x-modal-overlay:before {
   content: "✖";
   display: block;
-  float: right;
-  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25em;
   color: red;
   font-size: 200%;
   line-height: 100%;
