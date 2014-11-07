@@ -12,7 +12,7 @@
     "src/modal.css"
   ],
   "dependencies": {
-    "x-tag-core": "*",
+    "x-tag-core": "c00e8aa27d28",
     "x-tag-transitions": "*"
   }
 }
