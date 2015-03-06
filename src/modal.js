@@ -34,12 +34,13 @@
       xtag.query(document, 'body > x-modal').forEach(setTop);
     });
   }
-  
+
   xtag.addEvent(document, 'tapstart:delegate(x-modal-overlay)', function(e){
     this.__overlayTapstart__ = true;
   });
-  
+
   xtag.addEvent(document, 'tapend:delegate(x-modal-overlay)', function(e){
+    console.log(this, this.__modal__);
     var modal = this.__modal__;
     if (this.__overlayTapstart__ && modal && modal.hasAttribute('overlay-tap-hide')){
       modal.hide();
@@ -52,6 +53,7 @@
     lifecycle: {
       created: function() {
         this.xtag.overlayElement = document.createElement('x-modal-overlay');
+        this.xtag.overlayElement.setAttribute('hidden','');
         this.xtag.overlayElement.__modal__ = this;
       },
       inserted: function() {
@@ -71,12 +73,7 @@
     },
     accessors: {
       overlay: {
-        attribute: {boolean: true},
-        set: function(){
-          var last = this.className;
-          this.className += ' x-modal-safari-redraw-bug';
-          this.className = last;
-        }
+        attribute: {boolean: true},        
       },
       escapeHide: {
         attribute: {
@@ -94,9 +91,11 @@
     methods: {
       'show:transition(before)': function(){
         this.removeAttribute('hidden');
+        this.xtag.overlayElement.removeAttribute('hidden');
       },
       'hide:transition(after)': function(){
         this.setAttribute('hidden', '');
+        this.xtag.overlayElement.setAttribute('hidden','');
       },
       toggle: function() {
         this[this.hasAttribute('hidden') && 'show' || 'hide']();

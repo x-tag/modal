@@ -69,6 +69,10 @@ x-modal[transition="show"] {
   transform: translate(-50%, -50%) scale(1);
 }
 
-x-modal[transition="show"] + x-modal-overlay {
+x-modal[transition="show"]:not([hidden]) + x-modal-overlay {
+  opacity: 1;
+}
+
+x-modal[overlay]:not([hidden]):not([transition]) + x-modal-overlay {
   opacity: 1;
 }
