@@ -40,7 +40,6 @@
   });
 
   xtag.addEvent(document, 'tapend:delegate(x-modal-overlay)', function(e){
-    console.log(this, this.__modal__);
     var modal = this.__modal__;
     if (this.__overlayTapstart__ && modal && modal.hasAttribute('overlay-tap-hide')){
       modal.hide();

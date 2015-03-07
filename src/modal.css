@@ -33,12 +33,16 @@ x-modal-overlay:before {
   content: "✖";
   display: block;
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.25em;
-  color: red;
+  top: 0.25em;
+  right: 0.25em;
+  width: 1em;
+  padding: 0.05em;
+  color: #f00;
   font-size: 200%;
   line-height: 100%;
+  text-align: center;
+  background: #fff;
+  border-radius: 50%;
   cursor: pointer;
 }
 
