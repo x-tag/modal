@@ -47,7 +47,6 @@
     }
   });
 
-
   xtag.register('x-modal', {
     lifecycle: {
       created: function() {
@@ -63,11 +62,6 @@
       removed: function(){
         if (this.xtag.lastParent) this.xtag.lastParent.removeChild(this.xtag.overlayElement);
         this.xtag.lastParent = null;
-      }
-    },
-    events: {
-      'reveal': function(){
-        this.show();
       }
     },
     accessors: {
@@ -91,10 +85,12 @@
       'show:transition(before)': function(){
         this.removeAttribute('hidden');
         this.xtag.overlayElement.removeAttribute('hidden');
+        xtag.fireEvent(this, 'show');
       },
       'hide:transition(after)': function(){
         this.setAttribute('hidden', '');
         this.xtag.overlayElement.setAttribute('hidden','');
+        xtag.fireEvent(this, 'hide');
       },
       toggle: function() {
         this[this.hasAttribute('hidden') && 'show' || 'hide']();
