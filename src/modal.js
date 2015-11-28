@@ -1,4 +1,3 @@
-
 (function(){
 
   var oldiOS = /OS [1-4]_\d like Mac OS X/i.test(navigator.userAgent),
@@ -66,7 +65,7 @@
     },
     accessors: {
       overlay: {
-        attribute: {boolean: true},        
+        attribute: {boolean: true}
       },
       escapeHide: {
         attribute: {
