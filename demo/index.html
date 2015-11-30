@@ -36,7 +36,7 @@
 	<button data-action-type="openModal1">Open Modal 1</button>
 	<button data-action-type="openModal2">Open Modal 2</button>
   </div>
-  <x-modal id="modal_demo1" hidden overlay overlay-tap-hide transition>
+  <x-modal id="modal_demo1" hidden overlay hide-triggers="tap esc" transition>
     <p>
       All the railway lines north of the Thames and the South-Eastern people at Cannon Street had been warned by midnight on Sunday, and trains were being filled.
       People were fighting savagely for standing-room in the carriages even at two o'clock.  By three, people were being trampled and crushed even in Bishopsgate Street,
@@ -56,7 +56,7 @@
     </div>
   </x-modal>
 
-  <x-modal id="modal_demo2" overlay hidden escape-hide>
+  <x-modal id="modal_demo2" overlay hidden hide-triggers="tap esc">
     <p>
       All the railway lines north of the Thames and the South-Eastern people at Cannon Street had been warned by midnight on Sunday, and trains were being filled.
       People were fighting savagely for standing-room in the carriages even at two o'clock.  By three, people were being trampled and crushed even in Bishopsgate Street,

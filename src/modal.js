@@ -24,7 +24,7 @@
   }
 
   window.addEventListener('keyup', function(event){
-    if (event.keyCode == 27) xtag.query(document, 'x-modal[escape-hide]:not([hidden])').forEach(function(modal){
+    if (event.keyCode == 27) xtag.query(document, 'x-modal[hide-triggers~="esc"]:not([hidden])').forEach(function(modal){
       modal.hide();
     });
   });
@@ -35,17 +35,18 @@
     });
   }
 
-  xtag.addEvent(document, 'tapstart:delegate(x-modal-overlay)', function(e){
-    this.__overlayTapstart__ = true;
-  });
-
-  xtag.addEvent(document, 'tapend:delegate(x-modal-overlay)', function(e){
-    var modal = this.__modal__;
-    if (this.__overlayTapstart__ && modal && modal.hasAttribute('overlay-tap-hide')){
-      modal.hide();
-      this.__overlayTapstart__ = false;
+  xtag.addEvents(document, {
+    'tapstart:delegate(x-modal-overlay)': function(e){
+      this.__overlayTapstart__ = true;
+    },
+    'tapend:delegate(x-modal-overlay)': function(e){
+      var modal = this.__modal__;
+      if (this.__overlayTapstart__ && modal && (modal.hideTriggers || '').indexOf('tap') > -1){
+        this.__overlayTapstart__ = false;
+        modal.hide();
+      }
     }
-  });
+});
 
   xtag.register('x-modal', {
     lifecycle: {
@@ -56,29 +57,18 @@
       },
       inserted: function() {
         if (oldiOS || oldDroid) setTop(this);
-        this.xtag.lastParent = this.parentNode;
         insertOverlay(this);
       },
-      removed: function(){
-        if (this.xtag.lastParent) this.xtag.lastParent.removeChild(this.xtag.overlayElement);
-        this.xtag.lastParent = null;
+      removed: function(parent){
+        if (parent) parent.removeChild(this.xtag.overlayElement);
       }
     },
     accessors: {
       overlay: {
-        attribute: {boolean: true},        
+        attribute: {boolean: true}
       },
-      escapeHide: {
-        attribute: {
-          boolean: true,
-          name: 'escape-hide'
-        }
-      },
-      overlayTapHide: {
-        attribute: {
-          boolean: true,
-          name: 'overlay-tap-hide'
-        }
+      hideTriggers: {
+        attribute: {}
       }
     },
     methods: {
