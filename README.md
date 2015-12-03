@@ -24,13 +24,13 @@ Modal that initializes as hidden:
 
 Modal that allows pressing the ESC key to dismiss itself:
 
-	<x-modal escape-hide>
+	<x-modal hide-triggers="esc">
 		Place content markup here
 	</x-modal>
 
 Modal that is dismissed when the user clicks on the overlay that surrounds the modal:
 
-	<x-modal overlay-tap-hide>
+	<x-modal hide-triggers="tap">
 		Place content markup here
 	</x-modal>
 
