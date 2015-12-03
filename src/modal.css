@@ -30,15 +30,16 @@ x-modal-overlay {
 }
 
 x-modal-overlay:before {
-  content: "✖";
+  content: "×";
   display: block;
   position: absolute;
   top: 0.25em;
   right: 0.25em;
   width: 1em;
+  height: 1em;
   padding: 0.05em;
   color: #f00;
-  font-size: 200%;
+  font-size: 2em;
   line-height: 100%;
   text-align: center;
   background: #fff;
