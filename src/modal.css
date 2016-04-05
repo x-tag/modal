@@ -16,6 +16,7 @@ x-modal {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  will-change: opacity, -webkit-transform, transform;
 }
 
 x-modal-overlay {
@@ -27,6 +28,7 @@ x-modal-overlay {
   height: 100%;
   background-color: rgba(0,0,0,0.6);
   opacity: 0;
+  will-change: opacity, -webkit-transform, transform;
 }
 
 x-modal-overlay:before {
